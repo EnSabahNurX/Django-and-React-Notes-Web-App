@@ -1,4 +1,5 @@
 Django & React Web App
+
 Tehnologies:
 - Python
 - Django
