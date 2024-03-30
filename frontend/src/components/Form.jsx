@@ -9,7 +9,7 @@ function Form(route, method) {
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
 
-    const name = method == "login" ? "Login" : "Register"
+    const name = method === "login" ? "Login" : "Register"
 
     const handleSubmit = async (e) => {
         setLoading(true)
@@ -17,6 +17,13 @@ function Form(route, method) {
 
         try {
             const response = await api.post(route, { username, password })
+            if (method === "login") {
+                localStorage.setItem(ACCESS_TOKEN, response.data.access);
+                localStorage.setItem(REFRESH_TOKEN, response.data.refresh);
+                navigate("/")
+            } else {
+                navigate("/login")
+            }
         } catch (error) {
             alert(error)
         } finally {
