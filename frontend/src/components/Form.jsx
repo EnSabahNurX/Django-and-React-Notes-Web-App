@@ -9,11 +9,20 @@ function Form(route, method) {
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
 
+    const name = method == "login" ? "Login" : "Register"
+
     const handleSubmit = (e) => {
         e.preventDefault()
     }
 
     return <form onSubmit={handleSubmit} className="form-container">
-        <h1>(method == "login" ? "Login" : "Register")</h1>
+        <h1>(name)</h1>
+        <input
+            className="form-input"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username"
+        />
     </form>
 }
