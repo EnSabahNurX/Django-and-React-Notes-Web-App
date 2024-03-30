@@ -11,12 +11,21 @@ function Form(route, method) {
 
     const name = method == "login" ? "Login" : "Register"
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+        setLoading(true)
         e.preventDefault()
+
+        try {
+            const response = await api.post(route, { username, password })
+        } catch (error) {
+            alert(error)
+        } finally {
+            setLoading(false)
+        }
     }
 
     return <form onSubmit={handleSubmit} className="form-container">
-        <h1>(name)</h1>
+        <h1>{name}</h1>
         <input
             className="form-input"
             type="text"
@@ -31,5 +40,8 @@ function Form(route, method) {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
         />
+        <button className="form-button" type="submit">
+            {name}
+        </button>
     </form>
 }
