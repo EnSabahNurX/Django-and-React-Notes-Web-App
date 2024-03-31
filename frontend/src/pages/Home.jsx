@@ -24,22 +24,22 @@ function Home() {
     const deleteNote = (id) => {
         api.delete(`/api/notes/delete/${id}/`)
             .then((res) => {
-                if (res.status === 204) alert("Note deleted!")
-                else alert("Failed to delete note.")
+                if (res.status === 204) alert("Note deleted!");
+                else alert("Failed to delete note.");
+                getNotes();
             })
-            .catch((error) => alert(error))
-        getNotes();
+            .catch((error) => alert(error));
     };
 
     const createNote = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         api.post("/api/notes/", { content, title })
             .then((res) => {
-                if (res.status === 201) alert("Note created!")
-                else alert("Failed to make note.")
+                if (res.status === 201) alert("Note created!");
+                else alert("Failed to make note.");
+                getNotes();
             })
-            .catch((err) => alert(err))
-        getNotes();
+            .catch((err) => alert(err));
     };
 
     return <div>
@@ -74,7 +74,6 @@ function Home() {
                 type="submit"
                 value="Submit"
             ></input>
-
         </form>
     </div>;
 }
