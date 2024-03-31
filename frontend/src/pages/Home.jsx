@@ -27,6 +27,8 @@ function Home() {
                 if (res.status === 204) alert("Note deleted!")
                 else alert("Failed to delete note.")
             })
+            .catch((error) => alert(error))
+        getNotes()
     }
 
     return <div>Home</div>;
