@@ -3,14 +3,23 @@
   margin: 20px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.note-container:hover {
+  transform: translateY(-5px);
 }
 
 .note-title {
   color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .note-content {
   color: #666;
+  margin-bottom: 0.5rem;
 }
 
 .note-date {
@@ -20,16 +29,14 @@
 
 .delete-button {
   background-color: #f44336;
-  /* Red */
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 8px 16px;
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .delete-button:hover {
   background-color: #d32f2f;
-  /* Darker red */
 }
