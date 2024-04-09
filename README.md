@@ -34,3 +34,4 @@ This project is a full-stack web application built using Django and React, aimed
 
 ## Note
 - This project is actively maintained and welcomes feedback and contributions from the community.
+- When you try to register username and password must contain letters, numbers and special characters.
